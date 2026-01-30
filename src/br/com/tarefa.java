@@ -138,6 +138,11 @@ public class tarefa {
 
       case 6:
         break;
+
+      case 7:
+        automatico();
+        inicio();
+        break;
     }
   }
 
@@ -145,8 +150,25 @@ public class tarefa {
     Scanner sc = new Scanner(System.in);
 
     System.out.println(
-        "Informe o deseja fazer:\n 1 - Adicionar uma tarefa\n 2 - Visualizar tarefas \n 3 - Atualizar tarefas \n 4 - Deletar tarefa \n 5 - Salvar \n 6 - Sair\n");
+        "Informe o deseja fazer:\n 1 - Adicionar uma tarefa\n 2 - Visualizar tarefas \n 3 - Atualizar tarefas \n 4 - Deletar tarefa \n 5 - Salvar \n 6 - Sair\n 7 ");
     caso(sc);
+  }
+
+  public void automatico() {
+    tarefa = new tarefa("lllllllllll");
+    tarefa.setStatus(statusTarefa.CONCLUIDO);
+    tarefas.setTarefa(tarefa);
+    tarefa tarefa2 = new tarefa("llllllllll2");
+    tarefa2.setStatus(statusTarefa.CONCLUIDO);
+    tarefas.setTarefa(tarefa2);
+    tarefa tarefa3 = new tarefa("lllllllllll3");
+    tarefa3.setStatus(statusTarefa.CONCLUIDO);
+    tarefas.setTarefa(tarefa3);
+    for (int i = 0; i < this.tarefas.size(); i++) {
+      salvarTarefa.salvar(this.tarefas.returnTarefa(i));
+    }
+
+    this.tarefas.deletarArray();
   }
 
   @Override
